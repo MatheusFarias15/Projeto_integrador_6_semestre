@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Meta tag viewport otimizada para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    
+    <!-- Prevenção de zoom automático no iOS -->
+    <meta name="format-detection" content="telephone=no" />
+    
+    <!-- Otimização para PWA -->
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="AutoControl" />
+    
+    <title>AutoControl - Controle Veicular</title>
+    <meta name="description" content="Sistema completo para controle e gestão de veículos, manutenções e despesas" />
+    <meta name="author" content="AutoControl" />
+
+    <!-- Open Graph otimizado -->
+    <meta property="og:title" content="AutoControl - Controle Veicular" />
+    <meta property="og:description" content="Sistema completo para controle e gestão de veículos, manutenções e despesas" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AutoControl - Controle Veicular" />
+    <meta name="twitter:description" content="Sistema completo para controle e gestão de veículos, manutenções e despesas" />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Favicon otimizado para diferentes dispositivos -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="/src/index.css" as="style" />
+    <link rel="preload" href="/src/main.tsx" as="script" />
+
+    <!-- DNS prefetch para recursos externos -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+    <!-- Estilos críticos inline para melhor performance -->
+    <style>
+      /* Critical CSS para evitar FOUC */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #root {
+        height: 100%;
+        min-height: 100vh;
+      }
+
+      /* Loading spinner */
+      .loading-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(180deg, hsl(210, 20%, 98%), hsl(210, 20%, 95%));
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid hsl(214, 32%, 91%);
+        border-top: 4px solid hsl(217, 91%, 28%);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Otimizações para touch */
+      * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+      }
+
+      button, a, [role="button"] {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        touch-action: manipulation;
+      }
+
+      /* Scroll suave */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Melhorias para acessibilidade */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      /* Otimizações para modo escuro */
+      @media (prefers-color-scheme: dark) {
+        .loading-spinner {
+          background: linear-gradient(180deg, hsl(222, 47%, 11%), hsl(222, 47%, 14%));
+        }
+      }
+
+      /* Melhorias para orientação landscape em mobile */
+      @media screen and (max-height: 500px) and (orientation: landscape) {
+        .loading-spinner {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Loading fallback -->
+    <div id="root">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <!-- Scripts otimizados -->
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker para PWA (opcional) -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+
+    <!-- Prevenção de zoom em inputs no iOS -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Adiciona meta tag para prevenir zoom em inputs no iOS
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+          const inputs = document.querySelectorAll('input[type="email"], input[type="number"], input[type="tel"], input[type="url"]');
+          inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+              const viewport = document.querySelector('meta[name="viewport"]');
+              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            });
+            
+            input.addEventListener('blur', () => {
+              const viewport = document.querySelector('meta[name="viewport"]');
+              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes');
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

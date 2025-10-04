@@ -1,0 +1,415 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Automotive Design System - Premium Blue/Orange Theme */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary: Deep Automotive Blue */
+    --primary: 217 91% 28%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 91% 24%;
+
+    /* Secondary: Professional Gray */
+    --secondary: 215 15% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted Colors */
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent: Alert Orange/Amber */
+    --accent: 32 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Warning: Amber for alerts */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Success: Green */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 28%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 28%), hsl(217, 91%, 38%));
+    --gradient-accent: linear-gradient(135deg, hsl(32, 95%, 55%), hsl(32, 95%, 65%));
+    --gradient-bg: linear-gradient(180deg, hsl(210, 20%, 98%), hsl(210, 20%, 95%));
+
+    /* Shadows */
+    --shadow-card: 0 2px 8px hsla(222, 47%, 11%, 0.08);
+    --shadow-elevated: 0 8px 24px hsla(222, 47%, 11%, 0.12);
+    --shadow-accent: 0 4px 16px hsla(32, 95%, 55%, 0.3);
+
+    /* Sidebar */
+    --sidebar-background: 217 91% 28%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 91% 24%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 91% 24%;
+    --sidebar-ring: 32 95% 55%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 48%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 91% 58%;
+
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 32 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 22%;
+    --input: 217 33% 22%;
+    --ring: 217 91% 48%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 48%), hsl(217, 91%, 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(32, 95%, 55%), hsl(32, 95%, 65%));
+    --gradient-bg: linear-gradient(180deg, hsl(222, 47%, 11%), hsl(222, 47%, 14%));
+
+    --shadow-card: 0 2px 8px hsla(0, 0%, 0%, 0.3);
+    --shadow-elevated: 0 8px 24px hsla(0, 0%, 0%, 0.5);
+    --shadow-accent: 0 4px 16px hsla(32, 95%, 55%, 0.4);
+
+    --sidebar-background: 217 33% 14%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 33% 22%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 22%;
+    --sidebar-ring: 32 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-bg);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-in;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Melhorias de responsividade */
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+
+  .responsive-card {
+    @apply p-4 sm:p-6 rounded-lg shadow-card bg-card;
+  }
+
+  .responsive-button {
+    @apply px-3 py-2 sm:px-4 sm:py-2 text-sm sm:text-base;
+  }
+
+  .responsive-text {
+    @apply text-sm sm:text-base;
+  }
+
+  .responsive-title {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .responsive-subtitle {
+    @apply text-base sm:text-lg;
+  }
+
+  .responsive-spacing {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+
+  .responsive-margin {
+    @apply m-4 sm:m-6 lg:m-8;
+  }
+
+  /* Melhorias para formulários */
+  .responsive-form {
+    @apply space-y-4 sm:space-y-6;
+  }
+
+  .responsive-input {
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base;
+  }
+
+  /* Melhorias para tabelas */
+  .responsive-table {
+    @apply w-full overflow-x-auto;
+  }
+
+  .responsive-table table {
+    @apply min-w-full;
+  }
+
+  .responsive-table th,
+  .responsive-table td {
+    @apply px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm;
+  }
+
+  /* Melhorias para navegação mobile */
+  .mobile-nav-item {
+    @apply flex items-center gap-3 p-3 rounded-lg transition-colors;
+  }
+
+  .mobile-nav-item:hover {
+    @apply bg-sidebar-accent/50;
+  }
+
+  .mobile-nav-item.active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground;
+  }
+
+  /* Melhorias para modais e overlays */
+  .mobile-overlay {
+    @apply fixed inset-0 bg-black/50 z-40 md:hidden;
+  }
+
+  .mobile-modal {
+    @apply fixed inset-x-4 top-1/2 -translate-y-1/2 z-50 bg-card rounded-lg shadow-elevated max-h-[90vh] overflow-y-auto;
+  }
+
+  /* Melhorias para cards responsivos */
+  .auto-fit-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .auto-fill-grid {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  /* Melhorias para texto responsivo */
+  .responsive-prose {
+    @apply text-sm sm:text-base leading-relaxed;
+  }
+
+  .responsive-prose h1 {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+
+  .responsive-prose h2 {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+
+  .responsive-prose h3 {
+    @apply text-base sm:text-lg lg:text-xl;
+  }
+
+  /* Melhorias para imagens responsivas */
+  .responsive-image {
+    @apply w-full h-auto object-cover rounded-lg;
+  }
+
+  .responsive-avatar {
+    @apply w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full object-cover;
+  }
+
+  /* Melhorias para espaçamento */
+  .section-spacing {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  .content-spacing {
+    @apply space-y-6 sm:space-y-8 lg:space-y-12;
+  }
+
+  /* Melhorias para containers */
+  .responsive-container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .narrow-container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl;
+  }
+
+  /* Melhorias para flexbox responsivo */
+  .responsive-flex {
+    @apply flex flex-col sm:flex-row gap-4 sm:gap-6;
+  }
+
+  .responsive-flex-center {
+    @apply flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6;
+  }
+
+  .responsive-flex-between {
+    @apply flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6;
+  }
+}
+
+/* Media queries específicas para casos especiais */
+@media (max-width: 640px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .show-on-mobile {
+    display: block !important;
+  }
+
+  /* Ajustes específicos para sidebar mobile */
+  .mobile-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    z-index: 50 !important;
+  }
+
+  /* Ajustes para conteúdo principal no mobile */
+  .mobile-main-content {
+    padding-top: 73px !important; /* Altura do header mobile */
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .hide-on-tablet {
+    display: none !important;
+  }
+
+  .show-on-tablet {
+    display: block !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+
+  .show-on-desktop {
+    display: block !important;
+  }
+}
+
+/* Melhorias para touch targets */
+@media (hover: none) and (pointer: coarse) {
+  .touch-target {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  button, 
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Melhorias para scroll em dispositivos móveis */
+@media (max-width: 768px) {
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+
+  /* Melhorar a experiência de scroll horizontal */
+  .horizontal-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .horizontal-scroll::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Melhorias para orientação landscape em mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .landscape-adjust {
+    height: 100vh;
+    overflow-y: auto;
+  }
+}
