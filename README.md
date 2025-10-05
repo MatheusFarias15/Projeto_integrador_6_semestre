@@ -23,22 +23,6 @@ O objetivo do AutoControl é fornecer uma solução centralizada e intuitiva par
 - **🔧 Controle de Manutenção:** Registre cada serviço de manutenção realizado, incluindo custos, data e detalhes técnicos.
 - **💰 Rastreamento de Despesas:** Monitore todos os gastos, categorizados por tipo (combustível, seguro, etc.), para um controle financeiro detalhado.
 
-## 📸 Screenshots
-
-| Tela de Login | Dashboard Principal |
-| :-----------: | :-----------------: |
-| ![Tela de Login](img\login.png) | ![Dashboard](img\dashboard.png) |
-
-| Adicionar Veículo | Histórico de Manutenções |
-| :---------------: | :-----------------------: |
-| ![Adicionar Veículo](img\cadastro_novo_veiculo.png) | ![Histórico de Manutenções](img\manutencao.png) |
-
-| Controle de Despesas | Registrar Nova Despesa |
-| :------------------: | :---------------------: |
-| ![Controle de Despesas](img\despesas.png) | ![Registrar Nova Despesa](img\nova_despesa.png) |
-
-*(**Nota:** Substitua os `caminho/para/sua/imagem.png` pelos links das suas imagens no repositório.)*
-
 ## 🛠️ Tech Stack
 
 A aplicação foi construída utilizando tecnologias modernas, tanto no frontend quanto no backend.
