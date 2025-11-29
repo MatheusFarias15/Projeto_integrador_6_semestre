@@ -22,7 +22,7 @@ O objetivo do AutoControl é fornecer uma solução centralizada e intuitiva par
 - **🚗 Gerenciamento de Veículos:** Adicione, visualize e gerencie todos os veículos da sua frota em um só lugar.
 - **🔧 Controle de Manutenção:** Registre cada serviço de manutenção realizado, incluindo custos, data e detalhes técnicos.
 - **💰 Rastreamento de Despesas:** Monitore todos os gastos, categorizados por tipo (combustível, seguro, etc.), para um controle financeiro detalhado.
-
+g
 ## 🛠️ Tech Stack
 
 A aplicação foi construída utilizando tecnologias modernas, tanto no frontend quanto no backend.
@@ -83,4 +83,4 @@ Você vai precisar ter o [Node.js](https://nodejs.org/en/) (versão 16 ou superi
 Agora, a aplicação deve estar rodando em `http://localhost:3000`.
 
 ---
-Feito por [Matheus Farias](https://github.com/MatheusFarias15),[Tiago José batschke](https://github.com/tiagoBatschke), [Beatriz Bardela ](https://github.com/bbaebardy), [Gustavo Alves Marcelino](https://github.com/Gus12082005), [Kevin Kawan Dias  ](https://github.com/seu-usuario)
+Feito por [Matheus Farias](https://github.com/MatheusFarias15),[Tiago José batschke](https://github.com/tiagoBatschke), [Beatriz Bardela ](https://github.com/bbaebardy), [Gustavo Alves Marcelino](https://github.com/Gus12082005), [Kevin Kawan Dias  ](https://github.com/KaytosNikolaevich)
